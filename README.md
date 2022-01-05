@@ -1,3 +1,3 @@
 # wozhixianghaohaoxuexi.github.io
 blogs
-博客项目源码
+Hexo框架构建的博客项目源码
