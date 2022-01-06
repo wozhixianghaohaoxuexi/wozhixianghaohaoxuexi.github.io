@@ -13,27 +13,27 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="John Doe">
+  <meta name="author" content="Han Qiu">
   <meta name="keywords" content="">
   
     <meta name="description" content="以3.9.1版本为例，4.x版本使用参照官方文档。3.9.1不支持ES6 一、入门介绍 gulp介绍  gulp是与grunt功能类似的前端项目构建工具，也是基于nodejs的自动任务运行器 能自动化地完成javascript&#x2F;coffee&#x2F;sass&#x2F;less&#x2F;html&#x2F;img&#x2F;css等文件的合并、压缩、检查、监听文件变化、浏览器自动刷新、测试等任务 gulp相对于grunt更高效（异步多任务），">
 <meta property="og:type" content="article">
 <meta property="og:title" content="gulp基本使用（版本3.9.1）">
 <meta property="og:url" content="http://example.com/2022/01/06/gulp%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%EF%BC%88%E7%89%88%E6%9C%AC3-9-1%EF%BC%89/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="寒秋の博客">
 <meta property="og:description" content="以3.9.1版本为例，4.x版本使用参照官方文档。3.9.1不支持ES6 一、入门介绍 gulp介绍  gulp是与grunt功能类似的前端项目构建工具，也是基于nodejs的自动任务运行器 能自动化地完成javascript&#x2F;coffee&#x2F;sass&#x2F;less&#x2F;html&#x2F;img&#x2F;css等文件的合并、压缩、检查、监听文件变化、浏览器自动刷新、测试等任务 gulp相对于grunt更高效（异步多任务），">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="en-resource://database/839:1">
-<meta property="og:image" content="https://gitee.com/huqian025/my-images/raw/master/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/gulp%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/%E4%BB%BB%E5%8A%A1%E4%B9%8B%E9%97%B4%E4%BE%9D%E8%B5%96.png">
+<meta property="og:image" content="https://gitee.com/huqian025/my-images/raw/master/%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7/gulp%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/gulp_test%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.png">
+<meta property="og:image" content="https://gitee.com/huqian025/my-images/raw/master/%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7/gulp%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/%E4%BB%BB%E5%8A%A1%E4%B9%8B%E9%97%B4%E4%BE%9D%E8%B5%96.png">
 <meta property="article:published_time" content="2022-01-06T03:44:35.000Z">
-<meta property="article:modified_time" content="2022-01-06T03:46:15.321Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:modified_time" content="2022-01-06T07:30:59.835Z">
+<meta property="article:author" content="Han Qiu">
 <meta property="article:tag" content="glup">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="en-resource://database/839:1">
+<meta name="twitter:image" content="https://gitee.com/huqian025/my-images/raw/master/%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7/gulp%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/gulp_test%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.png">
   
   
-  <title>gulp基本使用（版本3.9.1） - Hexo</title>
+  <title>gulp基本使用（版本3.9.1） - 寒秋の博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -82,7 +82,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>Fluid</strong>
+      <strong>blogs</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -257,7 +257,7 @@
 <ul>
 <li><p>安装nodejs，查看版本：node -v</p>
 </li>
-<li><p>创建一个简单应用gulp_test<br><img src="en-resource://database/839:1" srcset="/img/loading.gif" lazyload alt="1bb86c19e85e6507c0cce3c3f005328a.png"></p>
+<li><p>创建一个简单应用gulp_test<br><img src="https://gitee.com/huqian025/my-images/raw/master/%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7/gulp%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/gulp_test%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.png" srcset="/img/loading.gif" lazyload alt="gulp_test目录结构"></p>
 </li>
 <li><p>安装gulp：</p>
 <ul>
@@ -290,7 +290,7 @@
 <li><p>任务之间的依赖，例如：less和css异步执行，css任务要在less任务执行完成后，再执行</p>
 </li>
 </ul>
-<p><img src="https://gitee.com/huqian025/my-images/raw/master/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/gulp%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/%E4%BB%BB%E5%8A%A1%E4%B9%8B%E9%97%B4%E4%BE%9D%E8%B5%96.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://gitee.com/huqian025/my-images/raw/master/%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7/gulp%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/%E4%BB%BB%E5%8A%A1%E4%B9%8B%E9%97%B4%E4%BE%9D%E8%B5%96.png" srcset="/img/loading.gif" lazyload alt="任务依赖"></p>
 <h3 id="三、自动刷新"><a href="#三、自动刷新" class="headerlink" title="三、自动刷新"></a>三、自动刷新</h3><h4 id="1、半自动（仅改动时，自动调用相应任务gulp-livereload）"><a href="#1、半自动（仅改动时，自动调用相应任务gulp-livereload）" class="headerlink" title="1、半自动（仅改动时，自动调用相应任务gulp-livereload）"></a>1、半自动（仅改动时，自动调用相应任务gulp-livereload）</h4><ul>
 <li>下载插件：<code>npm install gulp-livereload --save-dev</code></li>
 <li>配置编码：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> livereload = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;gulp-livereload&#x27;</span>)<br><br><span class="hljs-comment">// 注册监视任务（半自动）</span><br>gulp.task(<span class="hljs-string">&#x27;watch&#x27;</span>, [<span class="hljs-string">&#x27;default&#x27;</span>], <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-comment">// 开启监听</span><br>    livereload.listen();<br>    <span class="hljs-comment">// 确认监听的目标以及绑定相应的任务</span><br>    gulp.watch(<span class="hljs-string">&#x27;src/js/*.js&#x27;</span>, [<span class="hljs-string">&#x27;js&#x27;</span>]); <span class="hljs-comment">// 监听js文件的变化，变化时启动js任务</span><br>    gulp.watch([<span class="hljs-string">&#x27;src/css/*.css&#x27;</span>, <span class="hljs-string">&#x27;src/less/*.less&#x27;</span>], [<span class="hljs-string">&#x27;css&#x27;</span>]);<br>&#125;)<br><br><span class="hljs-comment">// 在每个任务后添加.pipe(livereload())，以js任务为例</span><br>gulp.task(<span class="hljs-string">&#x27;js&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-keyword">return</span> gulp.src(<span class="hljs-string">&#x27;src/js/*.js&#x27;</span>) <span class="hljs-comment">// 找到目标源文件，将数据读取到gulp内存中</span><br>        .pipe(concat(<span class="hljs-string">&#x27;build.js&#x27;</span>)) <span class="hljs-comment">// 合并文件</span><br>        .pipe(gulp.dest(<span class="hljs-string">&#x27;dist/js/&#x27;</span>)) <span class="hljs-comment">// 临时输出文件到本地</span><br>        .pipe(uglify()) <span class="hljs-comment">// 压缩文件</span><br>        .pipe(rename(&#123;<span class="hljs-attr">suffix</span>: <span class="hljs-string">&#x27;.min&#x27;</span>&#125;)) <span class="hljs-comment">// 重命名，也可以不用对象直接写文件名</span><br>        .pipe(gulp.dest(<span class="hljs-string">&#x27;dist/js/&#x27;</span>))<br>        .pipe(livereload()) <span class="hljs-comment">// 实时刷新</span><br>&#125;)<br></code></pre></td></tr></table></figure></li>
