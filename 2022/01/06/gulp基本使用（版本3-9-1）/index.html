@@ -1,0 +1,524 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="以3.9.1版本为例，4.x版本使用参照官方文档。3.9.1不支持ES6 一、入门介绍 gulp介绍  gulp是与grunt功能类似的前端项目构建工具，也是基于nodejs的自动任务运行器 能自动化地完成javascript&#x2F;coffee&#x2F;sass&#x2F;less&#x2F;html&#x2F;img&#x2F;css等文件的合并、压缩、检查、监听文件变化、浏览器自动刷新、测试等任务 gulp相对于grunt更高效（异步多任务），">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gulp基本使用（版本3.9.1）">
+<meta property="og:url" content="http://example.com/2022/01/06/gulp%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%EF%BC%88%E7%89%88%E6%9C%AC3-9-1%EF%BC%89/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="以3.9.1版本为例，4.x版本使用参照官方文档。3.9.1不支持ES6 一、入门介绍 gulp介绍  gulp是与grunt功能类似的前端项目构建工具，也是基于nodejs的自动任务运行器 能自动化地完成javascript&#x2F;coffee&#x2F;sass&#x2F;less&#x2F;html&#x2F;img&#x2F;css等文件的合并、压缩、检查、监听文件变化、浏览器自动刷新、测试等任务 gulp相对于grunt更高效（异步多任务），">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="en-resource://database/839:1">
+<meta property="og:image" content="https://gitee.com/huqian025/my-images/raw/master/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/gulp%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/%E4%BB%BB%E5%8A%A1%E4%B9%8B%E9%97%B4%E4%BE%9D%E8%B5%96.png">
+<meta property="article:published_time" content="2022-01-06T03:44:35.000Z">
+<meta property="article:modified_time" content="2022-01-06T03:46:15.321Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="glup">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="en-resource://database/839:1">
+  
+  
+  <title>gulp基本使用（版本3.9.1） - Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="gulp基本使用（版本3.9.1）">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-01-06 11:44" pubdate>
+        2022年1月6日 中午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      6.1k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      51 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">gulp基本使用（版本3.9.1）</h1>
+            
+            <div class="markdown-body">
+              <p><strong>以3.9.1版本为例，4.x版本使用参照官方文档。3.9.1不支持ES6</strong></p>
+<h3 id="一、入门介绍"><a href="#一、入门介绍" class="headerlink" title="一、入门介绍"></a>一、入门介绍</h3><ul>
+<li><p>gulp介绍</p>
+<ul>
+<li>gulp是与grunt功能类似的前端项目构建工具，也是基于nodejs的自动任务运行器</li>
+<li>能自动化地完成javascript/coffee/sass/less/html/img/css等文件的合并、压缩、检查、监听文件变化、浏览器自动刷新、测试等任务</li>
+<li>gulp相对于grunt更高效（异步多任务），更易于使用，插件高质量</li>
+</ul>
+</li>
+<li><p>gulp特点：任务化、基于流（I/O数据流）、异步/同步</p>
+</li>
+</ul>
+<p>使用：</p>
+<ul>
+<li><p>安装nodejs，查看版本：node -v</p>
+</li>
+<li><p>创建一个简单应用gulp_test<br><img src="en-resource://database/839:1" srcset="/img/loading.gif" lazyload alt="1bb86c19e85e6507c0cce3c3f005328a.png"></p>
+</li>
+<li><p>安装gulp：</p>
+<ul>
+<li>全局安装gulp：<code>npm install gulp -g</code></li>
+<li>局部安装gulp：<code>npm install gulp --save-dev</code></li>
+</ul>
+</li>
+<li><p>配置：gulpfile.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 引入gulp模块</span><br><span class="hljs-keyword">var</span> gulp = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;gulp&#x27;</span>);<br><span class="hljs-comment">// 注册任务，注册任务后可以通过 `gulp 任务名` 执行任务</span><br>gulp.task(<span class="hljs-string">&#x27;任务名&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-comment">// 配置任务操作</span><br>&#125;)<br><span class="hljs-comment">// 注册默认任务，可以将多个任务放在数组中，通过 `gulp` 执行多个任务</span><br>gulp.task(<span class="hljs-string">&#x27;default&#x27;</span>, [<span class="hljs-string">&#x27;任务名&#x27;</span>])<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="二、任务构建"><a href="#二、任务构建" class="headerlink" title="二、任务构建"></a>二、任务构建</h3><h4 id="1、构建js任务（gulp-uglify）"><a href="#1、构建js任务（gulp-uglify）" class="headerlink" title="1、构建js任务（gulp-uglify）"></a>1、构建js任务（gulp-uglify）</h4><ul>
+<li>下载插件：<code>npm install gulp-concat gulp-uglify gulp-rename --save-dev</code></li>
+<li>配置编码：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 引入gulp模块</span><br><span class="hljs-keyword">var</span> gulp = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;gulp&#x27;</span>);<br><span class="hljs-comment">// 引入gulp插件，需要先npm安装，它们都是一个方法，直接在名称后面加括号进行调用，不用通过gulp对象调用</span><br><span class="hljs-keyword">var</span> concat = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;gulp-concat&#x27;</span>);<br><span class="hljs-keyword">var</span> uglify = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;gulp-uglify&#x27;</span>);<br><span class="hljs-keyword">var</span> rename = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;gulp-rename&#x27;</span>);<br><span class="hljs-comment">// 注册合并压缩js的任务</span><br>gulp.task(<span class="hljs-string">&#x27;js&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-keyword">return</span> gulp.src(<span class="hljs-string">&#x27;src/js/*.js&#x27;</span>) <span class="hljs-comment">// 找到目标源文件，将数据读取到gulp内存中</span><br>        .pipe(concat(<span class="hljs-string">&#x27;build.js&#x27;</span>)) <span class="hljs-comment">// 合并文件</span><br>        .pipe(gulp.dest(<span class="hljs-string">&#x27;dist/js/&#x27;</span>)) <span class="hljs-comment">// 临时输出文件到本地</span><br>        .pipe(uglify()) <span class="hljs-comment">// 压缩文件</span><br>        .pipe(rename(&#123;<span class="hljs-attr">suffix</span>: <span class="hljs-string">&#x27;.min&#x27;</span>&#125;)) <span class="hljs-comment">// 重命名，也可以不用对象直接写文件名</span><br>        .pipe(gulp.dest(<span class="hljs-string">&#x27;dist/js/&#x27;</span>))<br>&#125;)<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="2、构建less任务（gulp-less）"><a href="#2、构建less任务（gulp-less）" class="headerlink" title="2、构建less任务（gulp-less）"></a>2、构建less任务（gulp-less）</h4><ul>
+<li>下载插件：<code>npm install gulp-less --save-dev</code></li>
+<li>配置编码：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> less = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;gulp-less&#x27;</span>)<br><br><span class="hljs-comment">// 注册转换less的任务</span><br>gulp.task(<span class="hljs-string">&#x27;less&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-keyword">return</span> gulp.src(<span class="hljs-string">&#x27;src/less/*.less&#x27;</span>)<br>        .pipe(less()) <span class="hljs-comment">// 编译less文件为css文件</span><br>        .pipe(gulp.dest(<span class="hljs-string">&#x27;src/css/&#x27;</span>)) <span class="hljs-comment">// 文件名不重复可以不用重命名</span><br>&#125;)<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="3、构建css任务（gulp-clean-css）"><a href="#3、构建css任务（gulp-clean-css）" class="headerlink" title="3、构建css任务（gulp-clean-css）"></a>3、构建css任务（gulp-clean-css）</h4><ul>
+<li>下载插件：<code>npm installl gulp-clean-css --save-dev</code></li>
+<li>配置编码：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> cleanCss = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;gulp-clean-css&#x27;</span>)<br><br><span class="hljs-comment">// 注册合并压缩css文件</span><br>gulp.task(<span class="hljs-string">&#x27;css&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-keyword">return</span> gulp.src(<span class="hljs-string">&#x27;src/css/*.css&#x27;</span>)<br>        .pipe(concat(<span class="hljs-string">&#x27;build.css&#x27;</span>))<br>        .pipe(rename(&#123;<span class="hljs-attr">suffix</span>: <span class="hljs-string">&#x27;.min&#x27;</span>&#125;))<br>        .pipe(cleanCss(&#123;<span class="hljs-attr">compatibility</span>: <span class="hljs-string">&#x27;ie8&#x27;</span>&#125;)) <span class="hljs-comment">// 兼容到ie8</span><br>        .pipe(gulp.dest(<span class="hljs-string">&#x27;dist/css/&#x27;</span>))<br>&#125;)<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="4、构建压缩html任务（gulp-htmlmin）"><a href="#4、构建压缩html任务（gulp-htmlmin）" class="headerlink" title="4、构建压缩html任务（gulp-htmlmin）"></a>4、构建压缩html任务（gulp-htmlmin）</h4><ul>
+<li>下载插件：<code>npm install gulp-htmlmin --save-dev</code></li>
+<li>配置编码：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> htmlmin = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;gulp-htmlmin&#x27;</span>)<br><br><span class="hljs-comment">// 注册压缩html任务</span><br>gulp.task(<span class="hljs-string">&#x27;html&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-keyword">return</span> gulp.src(<span class="hljs-string">&#x27;index.html&#x27;</span>)<br>        .pipe(htmlmin(&#123;<span class="hljs-attr">collapseWhitespace</span>: <span class="hljs-literal">true</span>&#125;)) <span class="hljs-comment">// 清除空格</span><br>        .pipe(gulp.dest(<span class="hljs-string">&#x27;dist/&#x27;</span>)) <span class="hljs-comment">// 注意html中引入css和js路径变化，以前是引入src下的</span><br>&#125;)<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="5、执行任务异步-同步，任务之间依赖"><a href="#5、执行任务异步-同步，任务之间依赖" class="headerlink" title="5、执行任务异步/同步，任务之间依赖"></a>5、执行任务异步/同步，任务之间依赖</h4><ul>
+<li><p>使用默认任务执行多个任务：在注册任务时，不使用return多个任务是同步执行的，使用return是异步</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 注册默认任务</span><br>gulp.task(<span class="hljs-string">&#x27;default&#x27;</span>, [<span class="hljs-string">&#x27;js&#x27;</span>, <span class="hljs-string">&#x27;less&#x27;</span>, <span class="hljs-string">&#x27;css&#x27;</span>]) <span class="hljs-comment">// 直接通过 `gulp` 命名执行js、less、css三个任务</span><br></code></pre></td></tr></table></figure></li>
+<li><p>任务之间的依赖，例如：less和css异步执行，css任务要在less任务执行完成后，再执行</p>
+</li>
+</ul>
+<p><img src="https://gitee.com/huqian025/my-images/raw/master/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/gulp%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/%E4%BB%BB%E5%8A%A1%E4%B9%8B%E9%97%B4%E4%BE%9D%E8%B5%96.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="三、自动刷新"><a href="#三、自动刷新" class="headerlink" title="三、自动刷新"></a>三、自动刷新</h3><h4 id="1、半自动（仅改动时，自动调用相应任务gulp-livereload）"><a href="#1、半自动（仅改动时，自动调用相应任务gulp-livereload）" class="headerlink" title="1、半自动（仅改动时，自动调用相应任务gulp-livereload）"></a>1、半自动（仅改动时，自动调用相应任务gulp-livereload）</h4><ul>
+<li>下载插件：<code>npm install gulp-livereload --save-dev</code></li>
+<li>配置编码：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> livereload = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;gulp-livereload&#x27;</span>)<br><br><span class="hljs-comment">// 注册监视任务（半自动）</span><br>gulp.task(<span class="hljs-string">&#x27;watch&#x27;</span>, [<span class="hljs-string">&#x27;default&#x27;</span>], <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-comment">// 开启监听</span><br>    livereload.listen();<br>    <span class="hljs-comment">// 确认监听的目标以及绑定相应的任务</span><br>    gulp.watch(<span class="hljs-string">&#x27;src/js/*.js&#x27;</span>, [<span class="hljs-string">&#x27;js&#x27;</span>]); <span class="hljs-comment">// 监听js文件的变化，变化时启动js任务</span><br>    gulp.watch([<span class="hljs-string">&#x27;src/css/*.css&#x27;</span>, <span class="hljs-string">&#x27;src/less/*.less&#x27;</span>], [<span class="hljs-string">&#x27;css&#x27;</span>]);<br>&#125;)<br><br><span class="hljs-comment">// 在每个任务后添加.pipe(livereload())，以js任务为例</span><br>gulp.task(<span class="hljs-string">&#x27;js&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-keyword">return</span> gulp.src(<span class="hljs-string">&#x27;src/js/*.js&#x27;</span>) <span class="hljs-comment">// 找到目标源文件，将数据读取到gulp内存中</span><br>        .pipe(concat(<span class="hljs-string">&#x27;build.js&#x27;</span>)) <span class="hljs-comment">// 合并文件</span><br>        .pipe(gulp.dest(<span class="hljs-string">&#x27;dist/js/&#x27;</span>)) <span class="hljs-comment">// 临时输出文件到本地</span><br>        .pipe(uglify()) <span class="hljs-comment">// 压缩文件</span><br>        .pipe(rename(&#123;<span class="hljs-attr">suffix</span>: <span class="hljs-string">&#x27;.min&#x27;</span>&#125;)) <span class="hljs-comment">// 重命名，也可以不用对象直接写文件名</span><br>        .pipe(gulp.dest(<span class="hljs-string">&#x27;dist/js/&#x27;</span>))<br>        .pipe(livereload()) <span class="hljs-comment">// 实时刷新</span><br>&#125;)<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="2、全自动（自动刷新gulp-connect，自动打开链接open）"><a href="#2、全自动（自动刷新gulp-connect，自动打开链接open）" class="headerlink" title="2、全自动（自动刷新gulp-connect，自动打开链接open）"></a>2、全自动（自动刷新gulp-connect，自动打开链接open）</h4><h5 id="2-1、页面自动刷新，不用f5"><a href="#2-1、页面自动刷新，不用f5" class="headerlink" title="2.1、页面自动刷新，不用f5"></a>2.1、页面自动刷新，不用f5</h5><ul>
+<li>下载插件：<code>npm install gulp-connect --save-dev</code></li>
+<li>编码配置：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> connect = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;gulp-connect&#x27;</span>)<br><br><span class="hljs-comment">// 注册监视任务（全自动），跟半自动没有任何关系</span><br>gulp.task(<span class="hljs-string">&#x27;server&#x27;</span>, [<span class="hljs-string">&#x27;default&#x27;</span>], <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-comment">// 配置服务器的选项</span><br>    connect.server(&#123;<br>        <span class="hljs-attr">root</span>: <span class="hljs-string">&#x27;dist/&#x27;</span>,<br>        <span class="hljs-attr">livereload</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// 实时刷新</span><br>        <span class="hljs-attr">port</span>: <span class="hljs-number">5000</span><br>    &#125;)<br>    <span class="hljs-comment">// 确认监听的目标以及绑定相应的任务</span><br>    gulp.watch(<span class="hljs-string">&#x27;src/js/*.js&#x27;</span>, [<span class="hljs-string">&#x27;js&#x27;</span>]); <span class="hljs-comment">// 监听js文件的变化，变化时启动js任务</span><br>    gulp.watch([<span class="hljs-string">&#x27;src/css/*.css&#x27;</span>, <span class="hljs-string">&#x27;src/less/*.less&#x27;</span>], [<span class="hljs-string">&#x27;css&#x27;</span>]);<br>&#125;)<br><br><span class="hljs-comment">// 在每个任务后添加.pipe(connect.reload())，以js任务为例</span><br>gulp.task(<span class="hljs-string">&#x27;js&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-keyword">return</span> gulp.src(<span class="hljs-string">&#x27;src/js/*.js&#x27;</span>) <span class="hljs-comment">// 找到目标源文件，将数据读取到gulp内存中</span><br>        .pipe(concat(<span class="hljs-string">&#x27;build.js&#x27;</span>)) <span class="hljs-comment">// 合并文件</span><br>        .pipe(gulp.dest(<span class="hljs-string">&#x27;dist/js/&#x27;</span>)) <span class="hljs-comment">// 临时输出文件到本地</span><br>        .pipe(uglify()) <span class="hljs-comment">// 压缩文件</span><br>        .pipe(rename(&#123;<span class="hljs-attr">suffix</span>: <span class="hljs-string">&#x27;.min&#x27;</span>&#125;)) <span class="hljs-comment">// 重命名，也可以不用对象直接写文件名</span><br>        .pipe(gulp.dest(<span class="hljs-string">&#x27;dist/js/&#x27;</span>))<br>        .pipe(connect.reload()) <span class="hljs-comment">// 实时刷新</span><br>&#125;)<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h5 id="2-2、链接自动打开，不用手动输入地址"><a href="#2-2、链接自动打开，不用手动输入地址" class="headerlink" title="2.2、链接自动打开，不用手动输入地址"></a>2.2、链接自动打开，不用手动输入地址</h5><ul>
+<li>下载插件：<code>npm install open --save-dev</code></li>
+<li>编码配置：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> open = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;open&#x27;</span>)<br><br><span class="hljs-comment">// 注册监视任务（全自动），跟半自动没有任何关系</span><br>gulp.task(<span class="hljs-string">&#x27;server&#x27;</span>, [<span class="hljs-string">&#x27;default&#x27;</span>], <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-comment">// 配置服务器的选项</span><br>    connect.server(&#123;<br>        <span class="hljs-attr">root</span>: <span class="hljs-string">&#x27;dist/&#x27;</span>,<br>        <span class="hljs-attr">livereload</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// 实时刷新</span><br>        <span class="hljs-attr">port</span>: <span class="hljs-number">5000</span><br>    &#125;)<br>    <br>    <span class="hljs-comment">// open可以自动打开指定的链接</span><br>    open(<span class="hljs-string">&#x27;http://localhost:5000/&#x27;</span>);<br>    <br>    <span class="hljs-comment">// 确认监听的目标以及绑定相应的任务</span><br>    gulp.watch(<span class="hljs-string">&#x27;src/js/*.js&#x27;</span>, [<span class="hljs-string">&#x27;js&#x27;</span>]); <span class="hljs-comment">// 监听js文件的变化，变化时启动js任务</span><br>    gulp.watch([<span class="hljs-string">&#x27;src/css/*.css&#x27;</span>, <span class="hljs-string">&#x27;src/less/*.less&#x27;</span>], [<span class="hljs-string">&#x27;css&#x27;</span>]);<br>&#125;)<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="四、扩展插件"><a href="#四、扩展插件" class="headerlink" title="四、扩展插件"></a>四、扩展插件</h3><h4 id="1、gulp-load-plugins（打包基于gulp的所有插件，不用一个个单独引入）"><a href="#1、gulp-load-plugins（打包基于gulp的所有插件，不用一个个单独引入）" class="headerlink" title="1、gulp-load-plugins（打包基于gulp的所有插件，不用一个个单独引入）"></a>1、gulp-load-plugins（打包基于gulp的所有插件，不用一个个单独引入）</h4><ul>
+<li>下载插件：<code>npm install gulp-load-plugins --save-dev</code></li>
+<li>配置编码：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> $ = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;gulp-load-plugins&#x27;</span>)();<br><br><span class="hljs-comment">// 任务中的每个插件通过 `$.插件名`的方式引入，以js任务为例</span><br><span class="hljs-comment">// 插件名为 `gulp-`后面的部分，短横线改为驼峰。如：gulp-htmlmin插件名为htmlmin，gulp-clean-css插件名为cleanCss</span><br>gulp.task(<span class="hljs-string">&#x27;js&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-keyword">return</span> gulp.src(<span class="hljs-string">&#x27;src/js/*.js&#x27;</span>) <span class="hljs-comment">// 找到目标源文件，将数据读取到gulp内存中</span><br>        .pipe($.concat(<span class="hljs-string">&#x27;build.js&#x27;</span>)) <span class="hljs-comment">// 合并文件</span><br>        .pipe(gulp.dest(<span class="hljs-string">&#x27;dist/js/&#x27;</span>)) <span class="hljs-comment">// 临时输出文件到本地</span><br>        .pipe($.uglify()) <span class="hljs-comment">// 压缩文件</span><br>        .pipe($.rename(&#123;<span class="hljs-attr">suffix</span>: <span class="hljs-string">&#x27;.min&#x27;</span>&#125;)) <span class="hljs-comment">// 重命名，也可以不用对象直接写文件名</span><br>        .pipe(gulp.dest(<span class="hljs-string">&#x27;dist/js/&#x27;</span>))<br>        .pipe($.connect.reload()) <span class="hljs-comment">// 实时刷新</span><br>&#125;)<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="五、4-x版本使用差异（支持ES6）"><a href="#五、4-x版本使用差异（支持ES6）" class="headerlink" title="五、4.x版本使用差异（支持ES6）"></a>五、4.x版本使用差异（支持ES6）</h3><ul>
+<li><ol>
+<li>创建任务不在使用task()方法，而是直接写执行函数，并将其导出</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>组合任务有两种方法：series()和parallel()，允许将多个独立的任务组合为一个更大的操作。这两个方法都可以接受任意数量的任务函数或以组合的操作，并可以互相嵌套至任意深度</li>
+</ol>
+<ul>
+<li>如果需要让任务按顺序执行，使用series()方法</li>
+<li>如果希望以最大并发来运行任务，使用parallel()方法</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> &#123; series &#125; = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;gulp&#x27;</span>);<br><br><span class="hljs-comment">// `clean` 函数并未被导出（export），因此被认为是私有任务（private task）。</span><br><span class="hljs-comment">// 它仍然可以被用在 `series()` 组合中。 </span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">clean</span>(<span class="hljs-params">cb</span>) </span>&#123; <br>    <span class="hljs-comment">// body omitted </span><br>    cb(); <br>&#125; <br><span class="hljs-comment">// `build` 函数被导出（export）了，因此它是一个公开任务（public task），并且可以被 `gulp` 命令直接调用。</span><br><span class="hljs-comment">// 它也仍然可以被用在 `series()` 组合中。 </span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">build</span>(<span class="hljs-params">cb</span>) </span>&#123;<br>    <span class="hljs-comment">// body omitted </span><br>    cb();<br>&#125;<br><br><span class="hljs-built_in">exports</span>.build = build; <br><span class="hljs-built_in">exports</span>.default = series(clean, build);<br></code></pre></td></tr></table></figure>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7/">打包工具</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/glup/">glup</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/01/06/webpack%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
+                        <span class="hidden-mobile">webpack性能优化</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
