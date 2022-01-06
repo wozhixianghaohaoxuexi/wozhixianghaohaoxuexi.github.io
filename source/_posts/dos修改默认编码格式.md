@@ -15,6 +15,7 @@ tags:
 1. 打开注册表，win+R => regedit
 2. 进入HKEY_CURRENT_USER\Console\%SystemRoot%_System32_WindowsPowerShell_v1.0_powershell.exe，将CodePage的十进制值修改为65001。如果没有CodePage选项，右键新建DWORD(32位)，修改十进制值为65001
 3. 重新打开powershell，输入chcp显示65001，说明修改成功
+
 ##### 2.2、cmd
 1. 打开注册表，win+R => regedit
 2. 进入HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Command Processor，添加一个叫autorun的字符串值，值是chcp 65001
