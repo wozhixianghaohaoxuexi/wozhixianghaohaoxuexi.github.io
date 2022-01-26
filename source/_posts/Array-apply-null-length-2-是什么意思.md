@@ -4,7 +4,8 @@ date: 2022-01-26 11:56:41
 categories:
   - js
 tags:
-  - js vue
+  - js
+  - vue
 ---
 
 看到vue文档的示例中，使用以下代码创建了2个相同的段落
