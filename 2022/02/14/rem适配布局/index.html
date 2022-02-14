@@ -16,22 +16,18 @@
   <meta name="author" content="Han Qiu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1、安装nginx依赖包1234567# 安装gcc-c++编译器yum install gcc-c++yum install -y openssl openssl-devel# 安装pcre包yum install -y pcre pcre-devel# 安装zlib包yum install -y zlib zlib-devel 2、下载并解压安装包123456789# 安装wget命令yum">
-<meta property="og:type" content="article">
-<meta property="og:title" content="linux中安装nginx">
-<meta property="og:url" content="http://example.com/2022/01/06/linux%E4%B8%AD%E5%AE%89%E8%A3%85nginx/index.html">
+    <meta property="og:type" content="article">
+<meta property="og:title" content="rem适配布局">
+<meta property="og:url" content="http://example.com/2022/02/14/rem%E9%80%82%E9%85%8D%E5%B8%83%E5%B1%80/index.html">
 <meta property="og:site_name" content="寒秋の博客">
-<meta property="og:description" content="1、安装nginx依赖包1234567# 安装gcc-c++编译器yum install gcc-c++yum install -y openssl openssl-devel# 安装pcre包yum install -y pcre pcre-devel# 安装zlib包yum install -y zlib zlib-devel 2、下载并解压安装包123456789# 安装wget命令yum">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-01-06T03:38:01.000Z">
-<meta property="article:modified_time" content="2022-02-14T03:18:10.638Z">
+<meta property="article:published_time" content="2022-02-14T03:35:20.000Z">
+<meta property="article:modified_time" content="2022-02-14T03:35:20.869Z">
 <meta property="article:author" content="Han Qiu">
-<meta property="article:tag" content="linux">
-<meta property="article:tag" content="nginx">
 <meta name="twitter:card" content="summary_large_image">
   
   
-  <title>linux中安装nginx - 寒秋の博客</title>
+  <title>rem适配布局 - 寒秋の博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -177,7 +173,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="linux中安装nginx">
+            <span class="h2" id="subtitle" title="rem适配布局">
               
             </span>
 
@@ -187,8 +183,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-01-06 11:38" pubdate>
-        2022年1月6日 中午
+      <time datetime="2022-02-14 11:35" pubdate>
+        2022年2月14日 中午
       </time>
     </span>
   
@@ -198,7 +194,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1k 字
+      0 字
     </span>
   
 
@@ -207,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      9 分钟
+      1 分钟
     </span>
   
 
@@ -236,38 +232,15 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">linux中安装nginx</h1>
+            <h1 style="display: none">rem适配布局</h1>
             
             <div class="markdown-body">
-              <h4 id="1、安装nginx依赖包"><a href="#1、安装nginx依赖包" class="headerlink" title="1、安装nginx依赖包"></a>1、安装nginx依赖包</h4><figure class="highlight powershell"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment"># 安装gcc-c++编译器</span><br>yum install gcc<span class="hljs-literal">-c</span>++<br>yum install <span class="hljs-literal">-y</span> openssl openssl<span class="hljs-literal">-devel</span><br><span class="hljs-comment"># 安装pcre包</span><br>yum install <span class="hljs-literal">-y</span> pcre pcre<span class="hljs-literal">-devel</span><br><span class="hljs-comment"># 安装zlib包</span><br>yum install <span class="hljs-literal">-y</span> zlib zlib<span class="hljs-literal">-devel</span><br></code></pre></td></tr></table></figure>
-<h4 id="2、下载并解压安装包"><a href="#2、下载并解压安装包" class="headerlink" title="2、下载并解压安装包"></a>2、下载并解压安装包</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment"># 安装wget命令</span><br>yum <span class="hljs-literal">-y</span> install <span class="hljs-built_in">wget</span><br><span class="hljs-comment"># 新建文件夹</span><br>mkdir /usr/local/nginx<br><span class="hljs-built_in">cd</span> /usr/local/nginx<br><span class="hljs-comment"># 下载tar包，下载地址可在官网查看 </span><br><span class="hljs-built_in">wget</span> http://nginx.org/download/nginx<span class="hljs-literal">-1</span>.<span class="hljs-number">20.2</span>.tar.gz<br><span class="hljs-comment"># 解压</span><br>tar <span class="hljs-literal">-zxvf</span> nginx<span class="hljs-literal">-1</span>.<span class="hljs-number">20.2</span>.tar.gz// 进入解压后目录<span class="hljs-built_in">cd</span> nginx<span class="hljs-literal">-1</span>.<span class="hljs-number">20.2</span><br></code></pre></td></tr></table></figure>
-<h4 id="3、安装nginx"><a href="#3、安装nginx" class="headerlink" title="3、安装nginx"></a>3、安装nginx</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment"># 使用nginx默认配置</span><br>./configure<br><span class="hljs-comment"># 编译安装</span><br>make<br>make install<br><span class="hljs-comment"># 查找安装路径</span><br>whereis nginx<br><span class="hljs-comment"># 进入sbin目录，可以看到有一个可执行文件nginx，直接./nginx执行就OK了。</span><br><span class="hljs-built_in">cd</span> sbin<br>./nginx<br><span class="hljs-comment"># 查看是否启动成功</span><br><span class="hljs-built_in">ps</span> <span class="hljs-literal">-ef</span> | grep nginx<br></code></pre></td></tr></table></figure>
-<h4 id="4、将nginx路径配置到系统环境变量"><a href="#4、将nginx路径配置到系统环境变量" class="headerlink" title="4、将nginx路径配置到系统环境变量"></a>4、将nginx路径配置到系统环境变量</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment"># 编辑系统环境变量</span><br>vim /etc/profile<br><span class="hljs-comment"># 将 nginx 路径添加至环境变量</span><br><span class="hljs-comment"># 添加路径并使用 NGINX_HOME 接收</span><br>export NGINX_HOME=/usr/local/nginx/sbin<br><span class="hljs-comment"># 将 NGINX_HOME 添加至环境变量 PATH</span><br>export PATH=<span class="hljs-variable">$PATH:</span><span class="hljs-variable">$NGINX_HOME</span><br><span class="hljs-comment"># 重新加载环境变量</span><br>source /etc/profile<br><span class="hljs-comment"># 在 root 路径下使用 nginx 命令</span><br><span class="hljs-built_in">cd</span> /<br>nginx <span class="hljs-literal">-h</span><br></code></pre></td></tr></table></figure>
-<h4 id="5、nginx其他命令"><a href="#5、nginx其他命令" class="headerlink" title="5、nginx其他命令"></a>5、nginx其他命令</h4><p><strong>未配置环境变量，需将nginx替换为路径/usr/local/nginx/sbin/nginx</strong></p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment"># 查看nginx帮助信息</span><br>nginx <span class="hljs-literal">-h</span><br><span class="hljs-comment"># 查看nginx的版本号</span><br>nginx <span class="hljs-literal">-v</span><br><span class="hljs-comment"># 显示nginx的版本号和编译信息</span><br>nginx <span class="hljs-literal">-V</span><br><span class="hljs-comment"># 启动nginx</span><br><span class="hljs-built_in">start</span> nginx<br><span class="hljs-comment"># 快速停止和关闭nginx</span><br>nginx <span class="hljs-literal">-s</span> stop<br><span class="hljs-comment"># 正常停止或关闭nginx，完成已接收的连接请求再退出</span><br>nginx <span class="hljs-literal">-s</span> quit<br><span class="hljs-comment"># 重新加载配置文件</span><br>nginx <span class="hljs-literal">-s</span> reload<br><span class="hljs-comment"># 测试nginx配置文件的正确性</span><br>nginx <span class="hljs-literal">-t</span><br></code></pre></td></tr></table></figure>
-
-
+              
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/linux/">linux</a>
-                    
-                  </div>
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/linux/">linux</a>
-                    
-                      <a class="hover-with-bg" href="/tags/nginx/">nginx</a>
-                    
-                  </div>
                 
               </div>
               
@@ -282,9 +255,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/01/06/vue%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">
+                      <a href="/2022/02/14/bootstrap%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">vue常用指令</span>
+                        <span class="hidden-mobile">bootstrap响应式布局</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -292,8 +265,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/01/06/js%E6%A0%87%E8%AF%86%E7%AC%A6%E3%80%81%E5%85%B3%E9%94%AE%E5%AD%97%E3%80%81%E4%BF%9D%E7%95%99%E5%AD%97/">
-                        <span class="hidden-mobile">js标识符、关键字、保留字</span>
+                      <a href="/2022/02/14/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%B8%83%E5%B1%80%E7%AE%80%E4%BB%8B/">
+                        <span class="hidden-mobile">移动端布局简介</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

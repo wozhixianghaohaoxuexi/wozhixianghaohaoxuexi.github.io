@@ -1,0 +1,658 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Han Qiu">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="一、精灵图1、为什么需要精灵图一个网页中往往会应用很多小的背景图片作为修饰，当页面中的图像过多时，服务器就会频繁地接收和发送请求图片，造成服务器请求压力过大，这将大大降低页面的加载速度。因此为了有效地减少服务器接收和发送请求的次数，提高页面的加载速度，出现了css精灵技术（也称CSS  Sprites） 核心原理：将网页中的一些小背景图像整合到一张大图中，这样服务器只需要一次请求就可以了  2、精">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css高级技巧">
+<meta property="og:url" content="http://example.com/2022/02/14/css%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7/index.html">
+<meta property="og:site_name" content="寒秋の博客">
+<meta property="og:description" content="一、精灵图1、为什么需要精灵图一个网页中往往会应用很多小的背景图片作为修饰，当页面中的图像过多时，服务器就会频繁地接收和发送请求图片，造成服务器请求压力过大，这将大大降低页面的加载速度。因此为了有效地减少服务器接收和发送请求的次数，提高页面的加载速度，出现了css精灵技术（也称CSS  Sprites） 核心原理：将网页中的一些小背景图像整合到一张大图中，这样服务器只需要一次请求就可以了  2、精">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2022/02/14/css%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7/images/%E7%B2%BE%E7%81%B5%E5%9B%BE.png">
+<meta property="og:image" content="en-resource://database/845:1">
+<meta property="og:image" content="en-resource://database/881:1">
+<meta property="og:image" content="en-resource://database/852:1">
+<meta property="og:image" content="en-resource://database/849:1">
+<meta property="og:image" content="en-resource://database/876:1">
+<meta property="og:image" content="en-resource://database/862:1">
+<meta property="og:image" content="en-resource://database/853:1">
+<meta property="og:image" content="en-resource://database/885:1">
+<meta property="og:image" content="en-resource://database/879:1">
+<meta property="og:image" content="en-resource://database/872:1">
+<meta property="og:image" content="en-resource://database/850:1">
+<meta property="og:image" content="en-resource://database/878:1">
+<meta property="og:image" content="en-resource://database/866:1">
+<meta property="og:image" content="en-resource://database/884:1">
+<meta property="og:image" content="en-resource://database/875:1">
+<meta property="og:image" content="en-resource://database/882:1">
+<meta property="og:image" content="en-resource://database/873:1">
+<meta property="og:image" content="en-resource://database/867:1">
+<meta property="og:image" content="en-resource://database/883:1">
+<meta property="og:image" content="en-resource://database/859:1">
+<meta property="og:image" content="en-resource://database/851:1">
+<meta property="og:image" content="en-resource://database/880:1">
+<meta property="og:image" content="en-resource://database/857:1">
+<meta property="og:image" content="en-resource://database/860:1">
+<meta property="og:image" content="en-resource://database/869:1">
+<meta property="og:image" content="en-resource://database/864:1">
+<meta property="og:image" content="en-resource://database/865:1">
+<meta property="og:image" content="en-resource://database/847:1">
+<meta property="og:image" content="en-resource://database/858:1">
+<meta property="og:image" content="en-resource://database/846:1">
+<meta property="og:image" content="en-resource://database/886:1">
+<meta property="og:image" content="en-resource://database/871:1">
+<meta property="og:image" content="en-resource://database/877:1">
+<meta property="og:image" content="en-resource://database/844:1">
+<meta property="og:image" content="en-resource://database/842:1">
+<meta property="og:image" content="en-resource://database/855:1">
+<meta property="og:image" content="en-resource://database/856:1">
+<meta property="og:image" content="en-resource://database/863:1">
+<meta property="og:image" content="en-resource://database/848:1">
+<meta property="og:image" content="en-resource://database/870:1">
+<meta property="og:image" content="en-resource://database/868:1">
+<meta property="og:image" content="en-resource://database/874:1">
+<meta property="og:image" content="en-resource://database/861:1">
+<meta property="og:image" content="en-resource://database/843:1">
+<meta property="article:published_time" content="2022-02-14T03:34:51.000Z">
+<meta property="article:modified_time" content="2022-02-14T06:55:25.881Z">
+<meta property="article:author" content="Han Qiu">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/2022/02/14/css%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7/images/%E7%B2%BE%E7%81%B5%E5%9B%BE.png">
+  
+  
+  <title>css高级技巧 - 寒秋の博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>blogs</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="css高级技巧">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-02-14 11:34" pubdate>
+        2022年2月14日 中午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.9k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      16 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">css高级技巧</h1>
+            
+            <div class="markdown-body">
+              <h3 id="一、精灵图"><a href="#一、精灵图" class="headerlink" title="一、精灵图"></a>一、精灵图</h3><h4 id="1、为什么需要精灵图"><a href="#1、为什么需要精灵图" class="headerlink" title="1、为什么需要精灵图"></a>1、为什么需要精灵图</h4><p>一个网页中往往会应用很多小的背景图片作为修饰，当页面中的图像过多时，服务器就会频繁地接收和发送请求图片，造成服务器请求压力过大，这将大大降低页面的加载速度。因此<strong>为了有效地减少服务器接收和发送请求的次数，提高页面的加载速度</strong>，出现了css精灵技术（也称CSS  Sprites）</p>
+<p>核心原理：将网页中的一些小背景图像整合到一张大图中，这样服务器只需要一次请求就可以了</p>
+<p><img src="./images/%E7%B2%BE%E7%81%B5%E5%9B%BE.png" srcset="/img/loading.gif" lazyload alt="精灵图"></p>
+<h4 id="2、精灵图的使用"><a href="#2、精灵图的使用" class="headerlink" title="2、精灵图的使用"></a>2、精灵图的使用</h4><p>将精灵图作为背景图片，通过background-position对精灵图位置进行调整。类似拿盒子去裁剪大图中的某个小图片</p>
+<p><img src="en-resource://database/845:1" srcset="/img/loading.gif" lazyload alt="219894207e3d2eda421bc4ed1d23c5fa.png"></p>
+<h3 id="二、字体图标"><a href="#二、字体图标" class="headerlink" title="二、字体图标"></a>二、字体图标</h3><h4 id="1、字体图标的产生"><a href="#1、字体图标的产生" class="headerlink" title="1、字体图标的产生"></a>1、字体图标的产生</h4><p>字体图标使用场景：主要用于显示网页中通用、常用的一些小图标</p>
+<p>精灵图缺点：</p>
+<ul>
+<li><ol>
+<li>图片文件还是比较大的</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>图片本身放大和缩小会失真</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>一旦图片制作完毕想要更换非常复杂</li>
+</ol>
+</li>
+</ul>
+<p>此时有一种技术的出现很好的解决了以上问题，就是字体图标iconfont（展示的是图标，本质属于字体）</p>
+<h4 id="2、字体图标的优点"><a href="#2、字体图标的优点" class="headerlink" title="2、字体图标的优点"></a>2、字体图标的优点</h4><ul>
+<li>轻量级：一个字体图标要比一系列的图像要小，一旦字体加载了，图标就会马上渲染出来，减少了服务器请求</li>
+<li>灵活性：本质其实是文字，可以随意的改变颜色、产生阴影、透明效果、旋转等</li>
+<li>兼容性：几乎支持所有浏览器</li>
+</ul>
+<p>注意：字体图标不能代替精灵图技术，只是对工作中图标部分技术的提升和优化</p>
+<p><img src="en-resource://database/881:1" srcset="/img/loading.gif" lazyload alt="e5692e084ad7ba123d2823b904081137.png"></p>
+<h4 id="3、字体图标下载"><a href="#3、字体图标下载" class="headerlink" title="3、字体图标下载"></a>3、字体图标下载</h4><p>推荐网站：<br>icomoon<br>阿里iconfont</p>
+<h4 id="4、字体图标引入"><a href="#4、字体图标引入" class="headerlink" title="4、字体图标引入"></a>4、字体图标引入</h4><ul>
+<li><ol>
+<li>下载字体图标</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>将fonts文件夹（里面有四种字体文件，为了保证兼容性）放在页面根目录下<br><img src="en-resource://database/852:1" srcset="/img/loading.gif" lazyload alt="5b031ae243cf60d71ca8e3bfc0e227f3.png"></li>
+</ol>
+</li>
+<li><ol start="3">
+<li>在css样式中全局声明字体，把这些字体文件通过css引入我们的页面中。复制style.css文件中的<code>@font-face</code>样式<br><img src="en-resource://database/849:1" srcset="/img/loading.gif" lazyload alt="2fcf549886cd0d49ca6446abe325e90e.png"></li>
+</ol>
+</li>
+<li><ol start="4">
+<li>打开demo.html文件，复制图标对应的文本<br><img src="en-resource://database/876:1" srcset="/img/loading.gif" lazyload alt="bfa947999c85ee15abdfc4a2036f0dec.png"></li>
+</ol>
+</li>
+<li><ol start="5">
+<li>为复制的文本添加字体样式<code>font-family</code>（属性值为font-face引入的字体）<br><img src="en-resource://database/862:1" srcset="/img/loading.gif" lazyload alt="9ab798c8bd49ca2f54e97bdfba0d4ad6.png"></li>
+</ol>
+</li>
+</ul>
+<h4 id="5、字体图标的追加"><a href="#5、字体图标的追加" class="headerlink" title="5、字体图标的追加"></a>5、字体图标的追加</h4><p>在图标网站中导入本地的字体图标（selection.json文件），选择需要追加的图标并重新下载，覆盖原来下载的图标文件</p>
+<h3 id="三、css三角形"><a href="#三、css三角形" class="headerlink" title="三、css三角形"></a>三、css三角形</h3><h4 id="1、思路"><a href="#1、思路" class="headerlink" title="1、思路"></a>1、思路</h4><ul>
+<li>将一个盒子高度和宽度都设置为0，并添加边框。当4个边框为不同颜色时，会出现4种不同颜色的三角形拼成的正方形</li>
+</ul>
+<p><img src="en-resource://database/853:1" srcset="/img/loading.gif" lazyload alt="65c14bc2a8d201bc3c5338582cb40925.png"><br><img src="en-resource://database/885:1" srcset="/img/loading.gif" lazyload alt="f10781bb956b331d375b2949ce7892f4.png"></p>
+<ul>
+<li>要实现三角形，可以将其余三个边框设置为透明色。三角的大小取决于边框大小</li>
+</ul>
+<p><img src="en-resource://database/879:1" srcset="/img/loading.gif" lazyload alt="d4c514d014255fd7b2cd518174835ffc.png"><br><img src="en-resource://database/872:1" srcset="/img/loading.gif" lazyload alt="afa25c77759955f6e053d11840b27885.png"></p>
+<ul>
+<li>兼容性：</li>
+</ul>
+<p><img src="en-resource://database/850:1" srcset="/img/loading.gif" lazyload alt="4d957394ef875821fa1c28c3ad07f385.png"></p>
+<ul>
+<li>应用：</li>
+</ul>
+<p><img src="en-resource://database/878:1" srcset="/img/loading.gif" lazyload alt="d147b9930dfd9eecdf6c511c18877a81.png"></p>
+<h3 id="四、css用户界面样式"><a href="#四、css用户界面样式" class="headerlink" title="四、css用户界面样式"></a>四、css用户界面样式</h3><h4 id="1、鼠标样式"><a href="#1、鼠标样式" class="headerlink" title="1、鼠标样式"></a>1、鼠标样式</h4><p>鼠标改为小手，其他参考css基础中cursor属性<br><code>cursor: pointer;</code></p>
+<h4 id="2、取消表单轮廓"><a href="#2、取消表单轮廓" class="headerlink" title="2、取消表单轮廓"></a>2、取消表单轮廓</h4><p><code>outline: none;</code></p>
+<h4 id="3、防止文本域拖拽"><a href="#3、防止文本域拖拽" class="headerlink" title="3、防止文本域拖拽"></a>3、防止文本域拖拽</h4><p><code>resize: none;</code></p>
+<h3 id="五、vertical-align属性应用"><a href="#五、vertical-align属性应用" class="headerlink" title="五、vertical-align属性应用"></a>五、vertical-align属性应用</h3><h4 id="1、使用"><a href="#1、使用" class="headerlink" title="1、使用"></a>1、使用</h4><ul>
+<li>使用场景：经常用于设置图片或者表单（行内块元素）和文字垂直对齐</li>
+<li>官方解释：用于设置一个元素的垂直对齐方式，但是它只针对行内元素或者行内块元素有有效</li>
+<li>语法：<code>vertical-align: baseline | top | middel | bottom</code>（默认基线对齐）</li>
+</ul>
+<p><img src="en-resource://database/866:1" srcset="/img/loading.gif" lazyload alt="a38c79afd43819f1b70e64f01a9948a3.png"><br><img src="en-resource://database/884:1" srcset="/img/loading.gif" lazyload alt="f0dec3386a531aa6e28ce115b76a34a9.png"></p>
+<ul>
+<li>示例：</li>
+</ul>
+<p><img src="en-resource://database/875:1" srcset="/img/loading.gif" lazyload alt="bbeb61b7d2aec145ba9d2015e0989eaa.png"></p>
+<h4 id="2、解决图片底部默认空白缝隙问题"><a href="#2、解决图片底部默认空白缝隙问题" class="headerlink" title="2、解决图片底部默认空白缝隙问题"></a>2、解决图片底部默认空白缝隙问题</h4><p>bug：图片底侧会有一个空白缝隙，原因是行内块元素会和文字的基线对齐<br>主要解决方法有两种：</p>
+<ul>
+<li><ol>
+<li>给图片添加<code>vertical-align: middle | top | bottom</code>（提倡使用）</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>把图片转化为块级元素<code>display: block;</code></li>
+</ol>
+</li>
+</ul>
+<p><img src="en-resource://database/882:1" srcset="/img/loading.gif" lazyload alt="ebab2b6ab71183d4c4650d700d3c2629.png"></p>
+<h3 id="六、溢出的文字省略号显示"><a href="#六、溢出的文字省略号显示" class="headerlink" title="六、溢出的文字省略号显示"></a>六、溢出的文字省略号显示</h3><h4 id="1、单行文字溢出省略号显示"><a href="#1、单行文字溢出省略号显示" class="headerlink" title="1、单行文字溢出省略号显示"></a>1、单行文字溢出省略号显示</h4><p><img src="en-resource://database/873:1" srcset="/img/loading.gif" lazyload alt="b3700715b48fc1958441e321ebcc8dad.png"></p>
+<h4 id="2、多行文字溢出省略号显示"><a href="#2、多行文字溢出省略号显示" class="headerlink" title="2、多行文字溢出省略号显示"></a>2、多行文字溢出省略号显示</h4><p>多行文本溢出显示省略号，有较大的兼容性问题，适合于webKit浏览器或移动端（移动端大部分是webkit内核）</p>
+<p><img src="en-resource://database/867:1" srcset="/img/loading.gif" lazyload alt="a92ad9bd5167d5595bda0f8a2ea260c0.png"><br><img src="en-resource://database/883:1" srcset="/img/loading.gif" lazyload alt="ede70a7d57da118edcd3781c8c1d4524.png"></p>
+<p>更推荐让后台人员来做这个效果，因为后台人员可以设置显示多少字，操作更简单</p>
+<h3 id="七、常见布局技巧"><a href="#七、常见布局技巧" class="headerlink" title="七、常见布局技巧"></a>七、常见布局技巧</h3><h4 id="1、margin负值的运用"><a href="#1、margin负值的运用" class="headerlink" title="1、margin负值的运用"></a>1、margin负值的运用</h4><ul>
+<li>实现效果： 每个盒子都有边框，且边框粗细相同。鼠标经过盒子时，盒子的四个边框变色</li>
+</ul>
+<p><img src="en-resource://database/859:1" srcset="/img/loading.gif" lazyload alt="89b46158f60d505b91e2238a73698de6.png"></p>
+<ul>
+<li>思路：<ul>
+<li><ol>
+<li>让每个盒子margin往左侧移动-1px（如果边框为1px），正好压住相邻盒子边框</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>鼠标经过某个盒子的时候，提高当前盒子的层级（如果没有定位，则添加相对定位（保留位置），如果有定位，则加z-index）</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="en-resource://database/851:1" srcset="/img/loading.gif" lazyload alt="580755e158b23b8e1fa9563453b5e6b5.png"><br><img src="en-resource://database/880:1" srcset="/img/loading.gif" lazyload alt="dfea17b69d0e2d24c72ca9f4a9bdd70d.png"></p>
+<p><img src="en-resource://database/857:1" srcset="/img/loading.gif" lazyload alt="7c843c3a4e63c411df37b3c288444425.png"><br><img src="en-resource://database/860:1" srcset="/img/loading.gif" lazyload alt="94a07883c0d7e9a2130ef63eacd24843.png"></p>
+<h4 id="2、文字围绕浮动元素"><a href="#2、文字围绕浮动元素" class="headerlink" title="2、文字围绕浮动元素"></a>2、文字围绕浮动元素</h4><ul>
+<li>实现效果：文字环绕在图片右侧</li>
+</ul>
+<p><img src="en-resource://database/869:1" srcset="/img/loading.gif" lazyload alt="aa78c513f737b5e021b594f8c0309f4b.png"></p>
+<ul>
+<li>思路：为图片盒子添加左浮动，文本则会环绕在右侧</li>
+</ul>
+<p><img src="en-resource://database/864:1" srcset="/img/loading.gif" lazyload alt="a096604545c7d92929183354e81228bd.png"></p>
+<h4 id="3、行内块的巧妙运用"><a href="#3、行内块的巧妙运用" class="headerlink" title="3、行内块的巧妙运用"></a>3、行内块的巧妙运用</h4><ul>
+<li>实现效果：</li>
+</ul>
+<p><img src="en-resource://database/865:1" srcset="/img/loading.gif" lazyload alt="a3689ebc9c4f1d2817efb2d02868aa4b.png"></p>
+<ul>
+<li>思路：<ul>
+<li><ol>
+<li>行内块元素默认有间距</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>行内块元素添加<code>text-align: center;</code>属性，里面的行内元素和行内块元素都会水平居中</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="en-resource://database/847:1" srcset="/img/loading.gif" lazyload alt="2588c5dd40948957ade0d5995cb3b92c.png"></p>
+<h4 id="4、css三角强化"><a href="#4、css三角强化" class="headerlink" title="4、css三角强化"></a>4、css三角强化</h4><ul>
+<li>实现效果：</li>
+</ul>
+<p><img src="en-resource://database/858:1" srcset="/img/loading.gif" lazyload alt="7dfb73e6974b7f4755eea9810a91907e.png"></p>
+<ul>
+<li>思路：<ul>
+<li><ol>
+<li>将border-bottom和border-left设置为0</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>将border-top大小增加</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>将border-top设置为透明</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>将三角与需要的盒子拼接</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="en-resource://database/846:1" srcset="/img/loading.gif" lazyload alt="22dc574f1e3ad2c5b880826f81148d5f.png"><br><img src="en-resource://database/886:1" srcset="/img/loading.gif" lazyload alt="fdec7dd73c014d688d97a9cf1eaffdfb.png"></p>
+<p><img src="en-resource://database/871:1" srcset="/img/loading.gif" lazyload alt="ac076c92e597c51d11ae345c2b1af91d.png"><br><img src="en-resource://database/877:1" srcset="/img/loading.gif" lazyload alt="d0e87ce9ab758b1cca3785ea2371bb6f.png"></p>
+<p><img src="en-resource://database/844:1" srcset="/img/loading.gif" lazyload alt="19e730a1aa299010e858acd0dcdc52b3.png"><br><img src="en-resource://database/842:1" srcset="/img/loading.gif" lazyload alt="001dc3a8d105eee48b4702aa73147243.png"></p>
+<h3 id="八、css初始化"><a href="#八、css初始化" class="headerlink" title="八、css初始化"></a>八、css初始化</h3><p>不同浏览器对有些标签的默认值不同，为了消除不同浏览器对HTML文本呈现的差异，照顾浏览器的兼容，需要对css初始化。以京东css初始化代码为例：</p>
+<p><img src="en-resource://database/855:1" srcset="/img/loading.gif" lazyload alt="752944f84457d8099f062c65e1a7216b.png"><br><img src="en-resource://database/856:1" srcset="/img/loading.gif" lazyload alt="779b1809524053abb0af3c3631fabb73.png"><br><img src="en-resource://database/863:1" srcset="/img/loading.gif" lazyload alt="9f74d32d051150337dc0e6a66075e76a.png"><br><img src="en-resource://database/848:1" srcset="/img/loading.gif" lazyload alt="2ce3696ffc1f5ff4b8e486d1c34f96e2.png"><br><img src="en-resource://database/870:1" srcset="/img/loading.gif" lazyload alt="aae7e0d14d01929fea0af2aab54ae0e7.png"><br><img src="en-resource://database/868:1" srcset="/img/loading.gif" lazyload alt="a9e3fff8c22599b038626e3a3bb001e1.png"><br><img src="en-resource://database/874:1" srcset="/img/loading.gif" lazyload alt="b5fde2079551b9d897af706c4a82b5be.png"><br><img src="en-resource://database/861:1" srcset="/img/loading.gif" lazyload alt="9a19598d98c2893739a634870f1214d0.png"><br><img src="en-resource://database/843:1" srcset="/img/loading.gif" lazyload alt="05286275f7666bf5972e42e4ad40e9a1.png"></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/css/">css</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/02/14/css3%E6%96%B0%E7%89%B9%E6%80%A7/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">css3新特性</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/02/14/css%E5%9F%BA%E7%A1%80/">
+                        <span class="hidden-mobile">css基础</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
