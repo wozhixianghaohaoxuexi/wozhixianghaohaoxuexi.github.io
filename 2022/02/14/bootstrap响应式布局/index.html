@@ -16,15 +16,35 @@
   <meta name="author" content="Han Qiu">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="article">
+    <meta name="description" content="一、响应式开发1、响应式开发原理 就是使用媒体查询针对不同宽度的设备进行布局和样式的设置，从而适配不同的设备   2、响应式布局容器响应式需要一个父级作为布局容器，来配合子级元素来实现变化效果。原理就是在不同屏幕下，通过媒体查询来改变布局容器的大小，再改变里面子元素的排列方式和大小，从而实现不同屏幕下，看到不同的页面布局和样式变化  二、bootstrap前端框架1、bootstrap简介boot">
+<meta property="og:type" content="article">
 <meta property="og:title" content="bootstrap响应式布局">
 <meta property="og:url" content="http://example.com/2022/02/14/bootstrap%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/index.html">
 <meta property="og:site_name" content="寒秋の博客">
+<meta property="og:description" content="一、响应式开发1、响应式开发原理 就是使用媒体查询针对不同宽度的设备进行布局和样式的设置，从而适配不同的设备   2、响应式布局容器响应式需要一个父级作为布局容器，来配合子级元素来实现变化效果。原理就是在不同屏幕下，通过媒体查询来改变布局容器的大小，再改变里面子元素的排列方式和大小，从而实现不同屏幕下，看到不同的页面布局和样式变化  二、bootstrap前端框架1、bootstrap简介boot">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/huqian025/my-images/raw/master/css/bootstrap%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%BC%80%E5%8F%91%E5%8E%9F%E7%90%86.png">
+<meta property="og:image" content="https://gitee.com/huqian025/my-images/raw/master/css/bootstrap%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80%E5%AE%B9%E5%99%A8.png">
+<meta property="og:image" content="https://gitee.com/huqian025/my-images/raw/master/css/bootstrap%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/bootstrap%E7%AE%80%E4%BB%8B_1.png">
+<meta property="og:image" content="https://gitee.com/huqian025/my-images/raw/master/css/bootstrap%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/bootstrap%E7%AE%80%E4%BB%8B_2.png">
+<meta property="og:image" content="https://gitee.com/huqian025/my-images/raw/master/css/bootstrap%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/bootstrap_1.png">
+<meta property="og:image" content="https://gitee.com/huqian025/my-images/raw/master/css/bootstrap%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/bootstrap_2.png">
+<meta property="og:image" content="https://gitee.com/huqian025/my-images/raw/master/css/bootstrap%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/bootstrap_3.png">
+<meta property="og:image" content="https://gitee.com/huqian025/my-images/raw/master/css/bootstrap%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/bootstrap_4.png">
+<meta property="og:image" content="https://gitee.com/huqian025/my-images/raw/master/css/bootstrap%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/bootstrap%E5%B8%83%E5%B1%80%E5%AE%B9%E5%99%A8.png">
+<meta property="og:image" content="https://gitee.com/huqian025/my-images/raw/master/css/bootstrap%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/%E6%A0%85%E6%A0%BC%E9%80%89%E9%A1%B9%E5%8F%82%E6%95%B0.png">
+<meta property="og:image" content="https://gitee.com/huqian025/my-images/raw/master/css/bootstrap%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/%E6%A0%85%E6%A0%BC%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B.png">
+<meta property="og:image" content="https://gitee.com/huqian025/my-images/raw/master/css/bootstrap%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/%E5%88%97%E5%B5%8C%E5%A5%97.png">
+<meta property="og:image" content="https://gitee.com/huqian025/my-images/raw/master/css/bootstrap%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/%E5%88%97%E5%B5%8C%E5%A5%97%E7%A4%BA%E4%BE%8B.png">
+<meta property="og:image" content="https://gitee.com/huqian025/my-images/raw/master/css/bootstrap%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/%E5%88%97%E5%81%8F%E7%A7%BB%E7%A4%BA%E4%BE%8B.png">
+<meta property="og:image" content="https://gitee.com/huqian025/my-images/raw/master/css/bootstrap%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/%E5%88%97%E5%81%8F%E7%A7%BB%E7%A4%BA%E4%BE%8B%E6%95%88%E6%9E%9C.png">
+<meta property="og:image" content="https://gitee.com/huqian025/my-images/raw/master/css/bootstrap%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/%E5%88%97%E6%8E%92%E5%BA%8F.png">
+<meta property="og:image" content="https://gitee.com/huqian025/my-images/raw/master/css/bootstrap%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B7%A5%E5%85%B7.png">
 <meta property="article:published_time" content="2022-02-14T03:35:28.000Z">
-<meta property="article:modified_time" content="2022-02-14T03:35:28.813Z">
+<meta property="article:modified_time" content="2022-02-15T03:36:38.416Z">
 <meta property="article:author" content="Han Qiu">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://gitee.com/huqian025/my-images/raw/master/css/bootstrap%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%BC%80%E5%8F%91%E5%8E%9F%E7%90%86.png">
   
   
   <title>bootstrap响应式布局 - 寒秋の博客</title>
@@ -194,7 +214,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      0 字
+      2k 字
     </span>
   
 
@@ -203,7 +223,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1 分钟
+      17 分钟
     </span>
   
 
@@ -235,11 +255,71 @@
             <h1 style="display: none">bootstrap响应式布局</h1>
             
             <div class="markdown-body">
-              
+              <h3 id="一、响应式开发"><a href="#一、响应式开发" class="headerlink" title="一、响应式开发"></a>一、响应式开发</h3><h4 id="1、响应式开发原理"><a href="#1、响应式开发原理" class="headerlink" title="1、响应式开发原理"></a>1、响应式开发原理</h4><ul>
+<li>就是使用媒体查询针对不同宽度的设备进行布局和样式的设置，从而适配不同的设备</li>
+</ul>
+<p><img src="https://gitee.com/huqian025/my-images/raw/master/css/bootstrap%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%BC%80%E5%8F%91%E5%8E%9F%E7%90%86.png" srcset="/img/loading.gif" lazyload alt="响应式开发原理"></p>
+<h4 id="2、响应式布局容器"><a href="#2、响应式布局容器" class="headerlink" title="2、响应式布局容器"></a>2、响应式布局容器</h4><p>响应式需要一个父级作为布局容器，来配合子级元素来实现变化效果。原理就是在不同屏幕下，通过媒体查询来改变布局容器的大小，再改变里面子元素的排列方式和大小，从而实现不同屏幕下，看到不同的页面布局和样式变化</p>
+<p><img src="https://gitee.com/huqian025/my-images/raw/master/css/bootstrap%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80%E5%AE%B9%E5%99%A8.png" srcset="/img/loading.gif" lazyload alt="响应式布局容器"></p>
+<h3 id="二、bootstrap前端框架"><a href="#二、bootstrap前端框架" class="headerlink" title="二、bootstrap前端框架"></a>二、bootstrap前端框架</h3><h4 id="1、bootstrap简介"><a href="#1、bootstrap简介" class="headerlink" title="1、bootstrap简介"></a>1、bootstrap简介</h4><p>bootstrap来自twitter，是基于html、css和javascript的前端框架，它简洁灵活，使得web开发更加快捷</p>
+<p><img src="https://gitee.com/huqian025/my-images/raw/master/css/bootstrap%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/bootstrap%E7%AE%80%E4%BB%8B_1.png" srcset="/img/loading.gif" lazyload alt="bootstrap简介_1"></p>
+<p><img src="https://gitee.com/huqian025/my-images/raw/master/css/bootstrap%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/bootstrap%E7%AE%80%E4%BB%8B_2.png" srcset="/img/loading.gif" lazyload alt="bootstrap简介_2"></p>
+<h4 id="2、bootstrap基本使用"><a href="#2、bootstrap基本使用" class="headerlink" title="2、bootstrap基本使用"></a>2、bootstrap基本使用</h4><p>bootstrap使用四部曲：</p>
+<ol>
+<li><p>创建文件夹结构<br><img src="https://gitee.com/huqian025/my-images/raw/master/css/bootstrap%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/bootstrap_1.png" srcset="/img/loading.gif" lazyload alt="bootstrap_1"></p>
+</li>
+<li><p>创建html骨架结构<br><img src="https://gitee.com/huqian025/my-images/raw/master/css/bootstrap%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/bootstrap_2.png" srcset="/img/loading.gif" lazyload alt="bootstrap_2"></p>
+</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;utf-8&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;X-UA-Compatible&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;IE=edge&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1&quot;</span>&gt;</span><br><span class="hljs-comment">&lt;!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Bootstrap 101 Template<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br><br><span class="hljs-comment">&lt;!-- Bootstrap --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css&quot;</span> <span class="hljs-attr">integrity</span>=<span class="hljs-string">&quot;sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu&quot;</span> <span class="hljs-attr">crossorigin</span>=<span class="hljs-string">&quot;anonymous&quot;</span>&gt;</span><br><br><span class="hljs-comment">&lt;!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 --&gt;</span><br><span class="hljs-comment">&lt;!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 --&gt;</span><br><span class="hljs-comment">&lt;!--[if lt IE 9]&gt;</span><br><span class="hljs-comment">  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="hljs-comment">  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="hljs-comment">&lt;![endif]--&gt;</span><br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p>引入相关样式文件<br><img src="https://gitee.com/huqian025/my-images/raw/master/css/bootstrap%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/bootstrap_3.png" srcset="/img/loading.gif" lazyload alt="bootstrap_3"></p>
+</li>
+<li><p>书写内容<br><img src="https://gitee.com/huqian025/my-images/raw/master/css/bootstrap%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/bootstrap_4.png" srcset="/img/loading.gif" lazyload alt="bootstrap_4"></p>
+</li>
+</ol>
+<h4 id="3、布局容器"><a href="#3、布局容器" class="headerlink" title="3、布局容器"></a>3、布局容器</h4><p>bootstrap需要为页面内容和栅格系统包裹一个.container容器，bootstrap预先定义好了这个类，叫.container</p>
+<p><img src="https://gitee.com/huqian025/my-images/raw/master/css/bootstrap%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/bootstrap%E5%B8%83%E5%B1%80%E5%AE%B9%E5%99%A8.png" srcset="/img/loading.gif" lazyload alt="bootstrap布局容器"></p>
+<h3 id="三、bootstrap栅格系统"><a href="#三、bootstrap栅格系统" class="headerlink" title="三、bootstrap栅格系统"></a>三、bootstrap栅格系统</h3><h4 id="1、栅格系统简介"><a href="#1、栅格系统简介" class="headerlink" title="1、栅格系统简介"></a>1、栅格系统简介</h4><ul>
+<li>栅格系统是指将页面布局划分为等宽的列，然后通过列数的定义来模块化页面布局。</li>
+<li>bootstrap提供了一套响应式、移动设备优先的流式栅格系统，随着屏幕或视口（viewport）尺寸的增加，系统自动分为12列</li>
+<li>bootstrap里面的container宽度是固定的，但是不同屏幕下，container的宽度不同，我们再把container划分为12等份</li>
+</ul>
+<h4 id="2、栅格选项参数"><a href="#2、栅格选项参数" class="headerlink" title="2、栅格选项参数"></a>2、栅格选项参数</h4><p><img src="https://gitee.com/huqian025/my-images/raw/master/css/bootstrap%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/%E6%A0%85%E6%A0%BC%E9%80%89%E9%A1%B9%E5%8F%82%E6%95%B0.png" srcset="/img/loading.gif" lazyload alt="栅格选项参数"></p>
+<ul>
+<li>每一列默认有左右15px的padding</li>
+<li>如果孩子的份数相加等于12，则孩子能占满整个container的宽度</li>
+<li>如果孩子的份数相加小于12，则不会占满整个container的宽度，会有空白</li>
+<li>如果孩子的份数相加大于12，则超出的那一列会另起一行显示</li>
+</ul>
+<p><img src="https://gitee.com/huqian025/my-images/raw/master/css/bootstrap%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/%E6%A0%85%E6%A0%BC%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B.png" srcset="/img/loading.gif" lazyload alt="栅格使用示例"></p>
+<h4 id="3、列嵌套"><a href="#3、列嵌套" class="headerlink" title="3、列嵌套"></a>3、列嵌套</h4><p>栅格系统内置的栅格系统将内容再次嵌套，简单理解就是一个列内在分成若干份小列</p>
+<p><img src="https://gitee.com/huqian025/my-images/raw/master/css/bootstrap%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/%E5%88%97%E5%B5%8C%E5%A5%97.png" srcset="/img/loading.gif" lazyload alt="列嵌套"></p>
+<ul>
+<li>列嵌套最好加一行row，这样可以取消父元素的padding值，而且高度自动和父级一样高</li>
+</ul>
+<p><img src="https://gitee.com/huqian025/my-images/raw/master/css/bootstrap%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/%E5%88%97%E5%B5%8C%E5%A5%97%E7%A4%BA%E4%BE%8B.png" srcset="/img/loading.gif" lazyload alt="列嵌套示例"></p>
+<h4 id="4、列偏移"><a href="#4、列偏移" class="headerlink" title="4、列偏移"></a>4、列偏移</h4><p>列偏移使用.col-md-offset-*类可以将列向右偏移，这些类实际是为当前元素添加了左侧的边距（margin）</p>
+<p><img src="https://gitee.com/huqian025/my-images/raw/master/css/bootstrap%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/%E5%88%97%E5%81%8F%E7%A7%BB%E7%A4%BA%E4%BE%8B.png" srcset="/img/loading.gif" lazyload alt="列偏移示例"></p>
+<p><img src="https://gitee.com/huqian025/my-images/raw/master/css/bootstrap%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/%E5%88%97%E5%81%8F%E7%A7%BB%E7%A4%BA%E4%BE%8B%E6%95%88%E6%9E%9C.png" srcset="/img/loading.gif" lazyload alt="列偏移示例效果"></p>
+<h4 id="5、列排序"><a href="#5、列排序" class="headerlink" title="5、列排序"></a>5、列排序</h4><p>通过使用.col-md-push-*和.col-md-pull-*类就可以很容易的改变列的顺序</p>
+<p><img src="https://gitee.com/huqian025/my-images/raw/master/css/bootstrap%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/%E5%88%97%E6%8E%92%E5%BA%8F.png" srcset="/img/loading.gif" lazyload alt="列排序"></p>
+<h4 id="6、响应式工具"><a href="#6、响应式工具" class="headerlink" title="6、响应式工具"></a>6、响应式工具</h4><p>为了加快对移动设备友好的页面开发工作，利用媒体查询功能，并使用这些工具类可以方便的针对不同的设备展示或隐藏页面内容</p>
+<p><img src="https://gitee.com/huqian025/my-images/raw/master/css/bootstrap%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B7%A5%E5%85%B7.png" srcset="/img/loading.gif" lazyload alt="响应式工具"></p>
+<p>与之相反的是visible-xs visible-sm visible-md visible-lg是显示某个页面内容</p>
+
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/css/">css</a>
+                    
+                  </div>
                 
                 
               </div>
