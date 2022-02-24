@@ -110,11 +110,11 @@ PS3 和 Games 是两个独立的标签，没有层级和顺序
 
 官方部署文档如下：
 
-![官方部署文档](https://gitee.com/huqian025/my-images/raw/master/%E5%85%B6%E4%BB%96/%E8%AE%B0%E4%B8%80%E6%AC%A1%E4%BD%BF%E7%94%A8Hexo%20+%20GitHub%20Pages%E6%90%AD%E5%BB%BAblog/hexo%E5%AE%98%E6%96%B9%E9%83%A8%E7%BD%B2%E6%96%87%E6%A1%A3.png)
+![官方部署文档](https://gitee.com/huqian025/my-images/raw/master/其他/记一次使用Hexo搭建blog/hexo官方部署文档.png)
 
 再使用Travis CI时，官方提示需要添加一个plan才能使用，但添加plan**需要stripe信用卡信息**，直接劝退。
 
-![Travis CI添加plan](https://gitee.com/huqian025/my-images/raw/master/%E5%85%B6%E4%BB%96/%E8%AE%B0%E4%B8%80%E6%AC%A1%E4%BD%BF%E7%94%A8Hexo%20+%20GitHub%20Pages%E6%90%AD%E5%BB%BAblog/Travis%20CI%E6%B7%BB%E5%8A%A0plan.png)
-![Travis CI添加plan-中文](https://gitee.com/huqian025/my-images/raw/master/%E5%85%B6%E4%BB%96/%E8%AE%B0%E4%B8%80%E6%AC%A1%E4%BD%BF%E7%94%A8Hexo%20+%20GitHub%20Pages%E6%90%AD%E5%BB%BAblog/Travis%20CI%E6%B7%BB%E5%8A%A0plan-%E4%B8%AD%E6%96%87.png)
+![Travis CI添加plan](https://gitee.com/huqian025/my-images/raw/master/其他/记一次使用Hexo搭建blog/Travis_CI添加plan.png)
+![Travis CI添加plan-中文](https://gitee.com/huqian025/my-images/raw/master/其他/记一次使用Hexo搭建blog/Travis_CI添加plan-中文.png)
 
 最后参照了一下[大佬的文章](https://segmentfault.com/a/1190000017986794#item-9)，本来都想记录分享一下搭建过程的，但是大佬写的真的太细了。。
