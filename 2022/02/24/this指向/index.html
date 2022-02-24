@@ -16,25 +16,21 @@
   <meta name="author" content="Han Qiu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="看到vue文档的示例中，使用以下代码创建了2个相同的段落  注：文档中length的值为20，这里方便演示改为了2  1234567render: function (createElement) &amp;#123;     return createElement(&amp;#x27;div&amp;#x27;,         Array.apply(null, &amp;#123; length: 2 &amp;#125;).m">
+    <meta name="description" content="一、如何判断函数中 this 指向 检查 . 左边是谁调用这个函数。例如 xiaoming.getName(); getName 函数里面有this，然后 . 旁边是 xiaoming，那么 this 就是指向 xiaoming。这种叫做 Implicit Binding（隐式绑定） 如果 . 左边不是一个对象，那就检查有没有用到 bind、apply、call 这三个方法，如果有，this 就指">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Array.apply(null, { length: 2 })是什么意思">
-<meta property="og:url" content="http://example.com/2022/01/26/Array-apply-null-length-2-%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D/index.html">
+<meta property="og:title" content="this指向">
+<meta property="og:url" content="http://example.com/2022/02/24/this%E6%8C%87%E5%90%91/index.html">
 <meta property="og:site_name" content="寒秋の博客">
-<meta property="og:description" content="看到vue文档的示例中，使用以下代码创建了2个相同的段落  注：文档中length的值为20，这里方便演示改为了2  1234567render: function (createElement) &amp;#123;     return createElement(&amp;#x27;div&amp;#x27;,         Array.apply(null, &amp;#123; length: 2 &amp;#125;).m">
+<meta property="og:description" content="一、如何判断函数中 this 指向 检查 . 左边是谁调用这个函数。例如 xiaoming.getName(); getName 函数里面有this，然后 . 旁边是 xiaoming，那么 this 就是指向 xiaoming。这种叫做 Implicit Binding（隐式绑定） 如果 . 左边不是一个对象，那就检查有没有用到 bind、apply、call 这三个方法，如果有，this 就指">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://gitee.com/huqian025/my-images/raw/master/js/Array.apply(null,%20%7B%20length%202%20%7D)%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D/%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84.png">
-<meta property="og:image" content="https://gitee.com/huqian025/my-images/raw/master/js/Array.apply(null,%20%7B%20length%202%20%7D)%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D/%E8%B0%83%E7%94%A8map.png">
-<meta property="article:published_time" content="2022-01-26T03:56:41.000Z">
-<meta property="article:modified_time" content="2022-01-26T07:05:02.566Z">
+<meta property="article:published_time" content="2022-02-24T08:13:35.000Z">
+<meta property="article:modified_time" content="2022-02-24T09:24:16.935Z">
 <meta property="article:author" content="Han Qiu">
-<meta property="article:tag" content="js">
-<meta property="article:tag" content="vue">
+<meta property="article:tag" content="this指向">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://gitee.com/huqian025/my-images/raw/master/js/Array.apply(null,%20%7B%20length%202%20%7D)%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D/%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84.png">
   
   
-  <title>Array.apply(null, { length: 2 })是什么意思 - 寒秋の博客</title>
+  <title>this指向 - 寒秋の博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -180,7 +176,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Array.apply(null, { length: 2 })是什么意思">
+            <span class="h2" id="subtitle" title="this指向">
               
             </span>
 
@@ -190,8 +186,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-01-26 11:56" pubdate>
-        2022年1月26日 中午
+      <time datetime="2022-02-24 16:13" pubdate>
+        2022年2月24日 下午
       </time>
     </span>
   
@@ -201,7 +197,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.2k 字
+      935 字
     </span>
   
 
@@ -210,7 +206,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      10 分钟
+      8 分钟
     </span>
   
 
@@ -239,32 +235,32 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Array.apply(null, { length: 2 })是什么意思</h1>
+            <h1 style="display: none">this指向</h1>
             
             <div class="markdown-body">
-              <p>看到vue文档的示例中，使用以下代码创建了2个相同的段落</p>
-<blockquote>
-<p>注：文档中length的值为20，这里方便演示改为了2</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><pre><code class="hljs js">render: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">createElement</span>) </span>&#123; <br>    <span class="hljs-keyword">return</span> createElement(<span class="hljs-string">&#x27;div&#x27;</span>, <br>        <span class="hljs-built_in">Array</span>.apply(<span class="hljs-literal">null</span>, &#123; <span class="hljs-attr">length</span>: <span class="hljs-number">2</span> &#125;).map(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123; <br>            <span class="hljs-keyword">return</span> createElement(<span class="hljs-string">&#x27;p&#x27;</span>, <span class="hljs-string">&#x27;hi&#x27;</span>) <br>        &#125;) <br>    ) <br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h4 id="1-apply方法中第二个参数-length-2-是什么意思"><a href="#1-apply方法中第二个参数-length-2-是什么意思" class="headerlink" title="1. apply方法中第二个参数{length: 2}是什么意思"></a>1. apply方法中第二个参数{length: 2}是什么意思</h4><p><strong>对象{length: 2}是一个类数组对象，因为没有初始化下标0，1的值，所以获取0，1下标的值得到的都是undefined。</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 类数组对象可以转成真正的数组</span><br><span class="hljs-keyword">const</span> a = <span class="hljs-built_in">Array</span>.prototype.slice.call(&#123;<span class="hljs-attr">length</span>: <span class="hljs-number">2</span>&#125;);<br><span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">Array</span>.isArray(a)) <span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure>
-
-<h4 id="2-Array-apply-null-length-2-是什么意思"><a href="#2-Array-apply-null-length-2-是什么意思" class="headerlink" title="2. Array.apply(null, { length: 2 })是什么意思"></a>2. Array.apply(null, { length: 2 })是什么意思</h4><p><strong>ES5开始apply函数的第二个参数除了可以是数组外，还可以是类数组对象（即包含length属性，且length属性值是个数字的对象）</strong></p>
-<p>直接调用Array函数和new方式调用是等价的</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">cosnt a = <span class="hljs-built_in">Array</span>(<span class="hljs-number">2</span>) <span class="hljs-comment">// 等价于const a = new Array(2)</span><br></code></pre></td></tr></table></figure>
-
-<p>因此Array.apply(null, { length: 2 })就是创建一个存储两个undefined的数组</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-built_in">Array</span>.apply(<span class="hljs-literal">null</span>, &#123; <span class="hljs-attr">length</span>: <span class="hljs-number">2</span> &#125;)<br><span class="hljs-comment">// 等价于</span><br><span class="hljs-built_in">Array</span>.apply(<span class="hljs-literal">null</span>, [<span class="hljs-literal">undefined</span>, <span class="hljs-literal">undefined</span>])<br><span class="hljs-comment">// 等价于</span><br><span class="hljs-built_in">Array</span>(<span class="hljs-literal">undefined</span>, <span class="hljs-literal">undefined</span>)<br><span class="hljs-comment">// 等价于</span><br><span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(<span class="hljs-literal">undefined</span>, <span class="hljs-literal">undefined</span>)<br></code></pre></td></tr></table></figure>
-
-<h4 id="3-Array-2-与Array-apply-null-length-2-的区别"><a href="#3-Array-2-与Array-apply-null-length-2-的区别" class="headerlink" title="3. Array(2)与Array.apply(null, { length: 2 })的区别"></a>3. Array(2)与Array.apply(null, { length: 2 })的区别</h4><ul>
-<li>相同点：都是创建一个长度为2的数组</li>
-<li>不同点：<strong>Array(2)创建的数组元素没有被初始化，Array.apply(null, { length: 2 })创建的数组每个元素都被赋值为undefined。</strong></li>
+              <h4 id="一、如何判断函数中-this-指向"><a href="#一、如何判断函数中-this-指向" class="headerlink" title="一、如何判断函数中 this 指向"></a>一、如何判断函数中 this 指向</h4><ol>
+<li>检查 <code>.</code> 左边是谁调用这个函数。例如 <code>xiaoming.getName();</code> getName 函数里面有this，然后 <code>.</code> 旁边是 xiaoming，那么 this 就是指向 xiaoming。这种叫做 Implicit Binding（隐式绑定）</li>
+<li>如果 <code>.</code> 左边不是一个对象，那就检查有没有用到 bind、apply、call 这三个方法，如果有，this 就指向这三个方法的第一个参数。这种叫做 explicit binding（显式绑定）</li>
+<li>如果前两个条件不满足，检查是否通过 new 关键字调用该函数，如果是，this 就指向 new 创建的对象。这种叫做 new binding（new 绑定）</li>
+<li>如果前三个条件不满足，检查 this 所在的函数是否为箭头函数，如果是，this 就指向箭头函数所绑定的对象（<strong>箭头函数中没有this，它的this继承外部函数的作用域。箭头函数在哪个位置定义，里面的this就跟这个位置的this指向相同</strong>）。这种叫做 lexical binding（词汇绑定）</li>
+<li>以上条件都不满足，如果不是严格模式，this 指向 window 对象，严格模式为 undefined</li>
+</ol>
+<h4 id="二、bind、apply、call-三者之间的区别"><a href="#二、bind、apply、call-三者之间的区别" class="headerlink" title="二、bind、apply、call 三者之间的区别"></a>二、bind、apply、call 三者之间的区别</h4><ul>
+<li>联系：</li>
 </ul>
-<p><img src="https://gitee.com/huqian025/my-images/raw/master/js/Array.apply(null,%20%7B%20length%202%20%7D)%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D/%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84.png" srcset="/img/loading.gif" lazyload alt="创建数组"></p>
-<h4 id="4-vue文档中为什么用Array-apply-null-length-2"><a href="#4-vue文档中为什么用Array-apply-null-length-2" class="headerlink" title="4. vue文档中为什么用Array.apply(null, { length: 2 })"></a>4. vue文档中为什么用Array.apply(null, { length: 2 })</h4><p><strong>map函数不会遍历数组中没有初始化或者被delete的元素</strong>（有相同限制还有forEach, reduce方法），根据上述“Array(2)与Array.apply(null, { length: 2 })的区别”可以得知，Array(2)创建的数组map的回调函数不会执行，Array.apply(null, { length: 2 })创建的数组map的回调函数才会执行两次</p>
-<p><img src="https://gitee.com/huqian025/my-images/raw/master/js/Array.apply(null,%20%7B%20length%202%20%7D)%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D/%E8%B0%83%E7%94%A8map.png" srcset="/img/loading.gif" lazyload alt="调用map"></p>
+<ol>
+<li>都可以改变函数的 this 指向</li>
+<li>第一个参数都是 this 要指向的对象</li>
+<li>都可以利用后续参数传参</li>
+</ol>
+<ul>
+<li>区别：</li>
+</ul>
+<ol>
+<li>call 和 apply 都是对函数直接调用（立即调用函数），而 bind 方法会返回一个函数，再通过()调用</li>
+<li>call 和 bind 传入的参数和调用方法中的形参一一对应，而 apply 需要将一一对应的参数封装为一个数组。bind 可以向 call 一样在对象后面跟上参数，也可以在返回函数调用时传入参数</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fn</span>(<span class="hljs-params">name, age</span>) </span>&#123;<br>  <span class="hljs-built_in">console</span>.log(name, age)<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>)<br>&#125;<br>fn(<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-number">18</span>);    <span class="hljs-comment">// a 18 window</span><br><span class="hljs-keyword">let</span> obj = &#123;&#125;;<br>fn.call(obj, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-number">19</span>);  <span class="hljs-comment">// b 19 obj</span><br>fn.apply(obj, [<span class="hljs-string">&#x27;c&#x27;</span>, <span class="hljs-number">20</span>]);   <span class="hljs-comment">// c 20 obj</span><br>fn.bind(obj)(<span class="hljs-string">&#x27;d&#x27;</span>, <span class="hljs-number">21</span>);  <span class="hljs-comment">// d 21 obj</span><br></code></pre></td></tr></table></figure>
 
             </div>
             <hr>
@@ -282,9 +278,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/js/">js</a>
-                    
-                      <a class="hover-with-bg" href="/tags/vue/">vue</a>
+                      <a class="hover-with-bg" href="/tags/this%E6%8C%87%E5%90%91/">this指向</a>
                     
                   </div>
                 
@@ -301,18 +295,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/01/26/%E8%AE%B0%E4%B8%80%E6%AC%A1%E4%BD%BF%E7%94%A8Hexo%E6%90%AD%E5%BB%BAblog/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">记一次使用Hexo + GitHub Pages搭建blog</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/01/10/%E6%8C%89%E4%BD%8D%E5%8F%96%E5%8F%8D/">
-                        <span class="hidden-mobile">按位取反(~)</span>
+                      <a href="/2022/02/24/webpack%E6%89%93%E5%8C%85ts/">
+                        <span class="hidden-mobile">webpack打包ts</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
