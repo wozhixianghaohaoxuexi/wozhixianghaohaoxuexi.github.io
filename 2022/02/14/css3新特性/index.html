@@ -52,7 +52,7 @@
 <meta property="og:image" content="https://gitee.com/huqian025/my-images/raw/master/css/css3%E6%96%B0%E7%89%B9%E6%80%A7/%E5%8A%A8%E7%94%BB%E9%80%9F%E5%BA%A6%E6%9B%B2%E7%BA%BF.png">
 <meta property="og:image" content="https://gitee.com/huqian025/my-images/raw/master/css/css3%E6%96%B0%E7%89%B9%E6%80%A7/%E9%80%8F%E8%A7%86perspective.png">
 <meta property="article:published_time" content="2022-02-14T03:34:59.000Z">
-<meta property="article:modified_time" content="2022-02-15T03:49:15.352Z">
+<meta property="article:modified_time" content="2022-03-29T03:38:26.005Z">
 <meta property="article:author" content="寒秋">
 <meta property="article:tag" content="css3">
 <meta name="twitter:card" content="summary_large_image">
@@ -226,7 +226,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4.9k 字
+      5.2k 字
     </span>
   
 
@@ -235,7 +235,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      41 分钟
+      44 分钟
     </span>
   
 
@@ -494,10 +494,14 @@
 </ul>
 <h3 id="十一、渐变"><a href="#十一、渐变" class="headerlink" title="十一、渐变"></a>十一、渐变</h3><h4 id="1、线性渐变"><a href="#1、线性渐变" class="headerlink" title="1、线性渐变"></a>1、线性渐变</h4><ul>
 <li><p>语法</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">background</span>: <span class="hljs-built_in">line-gradient</span>(起始方向, 颜色<span class="hljs-number">1</span>, 颜色<span class="hljs-number">2</span>, ...);<br><span class="hljs-attribute">background</span>: <span class="hljs-built_in">-webkit-line-gradient</span>(left, red, blue);<br><span class="hljs-attribute">background</span>: <span class="hljs-built_in">-webkit-line-gradient</span>(left top, red, blue);<br></code></pre></td></tr></table></figure></li>
-<li><p>背景渐变必须添加浏览器私有前缀</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">background</span>: <span class="hljs-built_in">linear-gradient</span>(渐变方向, start-color, ..., end-color);<br><span class="hljs-comment">/* 从 右 到 左 渐变 */</span><br><span class="hljs-attribute">background</span>: <span class="hljs-built_in">linear-gradient</span>(to left, red, blue);<br><span class="hljs-comment">/* 从 右下 到 左上 渐变 */</span><br><span class="hljs-attribute">background</span>: <span class="hljs-built_in">linear-gradient</span>(to left top, red, blue);<br></code></pre></td></tr></table></figure></li>
+<li><p>起始方向可以是：方位名词或者度数，如果省略默认就是从上到下</p>
 </li>
-<li><p>起始方向可以是：方位名词或者度数，如果省略默认就是top</p>
+</ul>
+<h4 id="2、径向渐变"><a href="#2、径向渐变" class="headerlink" title="2、径向渐变"></a>2、径向渐变</h4><ul>
+<li><p>语法</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">background</span>: <span class="hljs-built_in">radial-gradient</span>(渐变形状，start-color, ..., end-color)<br>/* 颜色均匀 的 椭圆 径向渐变 */<br>background: <span class="hljs-built_in">radial-gradient</span>(red, yellow, green);<br><span class="hljs-comment">/* 颜色均匀 的 圆形 径向渐变 */</span><br><span class="hljs-attribute">background</span>: <span class="hljs-built_in">radial-gradient</span>(circle, red, yellow, green);<br><span class="hljs-comment">/* 颜色不均匀 的 椭圆 径向渐变 */</span><br><span class="hljs-attribute">background</span>: <span class="hljs-built_in">radial-gradient</span>(red <span class="hljs-number">5%</span>, yellow <span class="hljs-number">15%</span>, green <span class="hljs-number">60%</span>);<br></code></pre></td></tr></table></figure></li>
+<li><p>渐变形状的值为 circle（圆形） 和 ellipse（椭圆，默认值） </p>
 </li>
 </ul>
 
