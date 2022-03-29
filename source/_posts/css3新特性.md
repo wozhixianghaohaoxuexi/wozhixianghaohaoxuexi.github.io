@@ -342,10 +342,26 @@ border-radius: 10px;
 
 * 语法
 ```css
-background: line-gradient(起始方向, 颜色1, 颜色2, ...);
-background: -webkit-line-gradient(left, red, blue);
-background: -webkit-line-gradient(left top, red, blue);
+background: linear-gradient(渐变方向, start-color, ..., end-color);
+/* 从 右 到 左 渐变 */
+background: linear-gradient(to left, red, blue);
+/* 从 右下 到 左上 渐变 */
+background: linear-gradient(to left top, red, blue);
 ```
 
-* 背景渐变必须添加浏览器私有前缀
-* 起始方向可以是：方位名词或者度数，如果省略默认就是top
+* 起始方向可以是：方位名词或者度数，如果省略默认就是从上到下
+
+#### 2、径向渐变
+
+* 语法
+```css
+background: radial-gradient(渐变形状，start-color, ..., end-color)
+/* 颜色均匀 的 椭圆 径向渐变 */
+background: radial-gradient(red, yellow, green);
+/* 颜色均匀 的 圆形 径向渐变 */
+background: radial-gradient(circle, red, yellow, green);
+/* 颜色不均匀 的 椭圆 径向渐变 */
+background: radial-gradient(red 5%, yellow 15%, green 60%);
+```
+
+* 渐变形状的值为 circle（圆形） 和 ellipse（椭圆，默认值） 
